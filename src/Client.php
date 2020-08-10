@@ -10,6 +10,10 @@ class Client {
   private $apiKey;
   private $client;
 
+  public function __construct($apiKey) {
+    $this->apiKey = $apiKey;
+  }
+
   public function setAddress($address) {
     $this->address = $address;
   }
