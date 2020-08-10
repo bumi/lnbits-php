@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "LND\\": "src/"
+            "LNBits\\": "src/"
         }
     },
     "minimum-stability": "dev"
