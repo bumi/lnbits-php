@@ -6,7 +6,7 @@ use GuzzleHttp;
 
 class Client {
 
-  private $address;
+  private $address = 'https://lnbits.com';
   private $apiKey;
   private $client;
 
