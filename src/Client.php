@@ -37,8 +37,9 @@ class Client {
   }
 
   public function getInvoice($checkingId) {
-    $invoice = $this->request('GET', '/api/v1/payments' . $checkingId);
+    $invoice = $this->request('GET', '/api/v1/payments/' . $checkingId);
     $invoice['settled'] = $invoice['paid']; //kinda mimic lnd
+    return $invoice;
   }
 
   public function isInvoicePaid($checkingId) {
