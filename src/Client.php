@@ -51,7 +51,7 @@ class Client {
 
     $request = new GuzzleHttp\Psr7\Request($method, $path, $headers, $body);
     $response = $this->client()->send($request);
-    if ($response->getStatusCode() == 200) {
+    if ($response->getStatusCode() > 200 && $response->getStatusCode() < 300) {
       $responseBody = $response->getBody()->getContents();
       return json_decode($responseBody, true);
     } else {
