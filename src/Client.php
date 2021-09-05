@@ -23,7 +23,10 @@ class Client {
   }
 
   public function getInfo() {
-    return $this->request('GET', 'getinfo');
+    $info = $this->request('GET', '/api/v1/wallet');
+    $info['alias'] = $info['name'];
+    $info['identity_pubkey'] = $info[name] . ' (LNBits)';
+    return $info;
   }
 
   public function addInvoice($invoice) {
