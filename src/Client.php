@@ -6,12 +6,15 @@ use GuzzleHttp;
 
 class Client {
 
-  private $address = 'https://lnbits.com';
+  private $address = 'https://legend.lnbits.com';
   private $apiKey;
   private $client;
 
-  public function __construct($apiKey) {
+  public function __construct($apiKey, $address = null) {
     $this->apiKey = $apiKey;
+    if ($address) {
+      $this->address = $address;
+    }
   }
 
   public function setAddress($address) {
