@@ -28,7 +28,7 @@ class Client {
   public function getInfo() {
     $info = $this->request('GET', '/api/v1/wallet');
     $info['alias'] = $info['name'];
-    $info['identity_pubkey'] = 'LNBits: ' . $info['id'];
+    $info['identity_pubkey'] = 'LNBits';
     return $info;
   }
 
