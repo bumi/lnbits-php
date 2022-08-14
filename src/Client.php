@@ -34,6 +34,9 @@ class Client {
 
   public function addInvoice($invoice) {
     $requestBody = [ "out" => false, "amount" => (int)$invoice['value'], "memo" => $invoice['memo'] ];
+    if (!empty($invoice["description_hash"])) {
+      $requestBody['description_hash'] = $invoice['description_hash'];
+    }
     $invoice = $this->request('POST', '/api/v1/payments', json_encode($requestBody));
     $invoice['r_hash'] = $invoice['checking_id']; // kinda mimic lnd
     return $invoice;
