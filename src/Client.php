@@ -34,8 +34,9 @@ class Client {
 
   public function addInvoice($invoice) {
     $requestBody = [ "out" => false, "amount" => (int)$invoice['value'], "memo" => $invoice['memo'] ];
+    // NOTE: unhashed_description must be hex encoded
     if (array_key_exists("unhashed_description", $invoice) && !empty($invoice["unhashed_description"])) {
-      $requestBody['unhashed_description'] = $invoice['unhashed_description'];
+      $requestBody['unhashed_description'] = bin2hex($invoice['unhashed_description']);
     }
 
     $invoice = $this->request('POST', '/api/v1/payments', json_encode($requestBody));
