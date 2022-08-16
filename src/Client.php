@@ -34,8 +34,8 @@ class Client {
 
   public function addInvoice($invoice) {
     $requestBody = [ "out" => false, "amount" => (int)$invoice['value'], "memo" => $invoice['memo'] ];
-    if (array_key_exists("description_hash", $invoice) && !empty($invoice["description_hash"])) {
-      $requestBody['description_hash'] = $invoice['description_hash'];
+    if (array_key_exists("unhashed_description", $invoice) && !empty($invoice["unhashed_description"])) {
+      $requestBody['unhashed_description'] = $invoice['unhashed_description'];
     }
 
     $invoice = $this->request('POST', '/api/v1/payments', json_encode($requestBody));
