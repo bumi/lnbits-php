@@ -41,6 +41,7 @@ class Client {
 
     $invoice = $this->request('POST', '/api/v1/payments', json_encode($requestBody));
     $invoice['r_hash'] = $invoice['checking_id']; // kinda mimic lnd
+    $invoice['id'] = $invoice['checking_id'];
     return $invoice;
   }
 
