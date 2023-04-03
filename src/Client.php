@@ -76,7 +76,7 @@ class Client {
     if ($this->client) {
       return $this->client;
     }
-    $options = ['base_uri' => $this->address];
+    $options = ['base_uri' => $this->address, 'timeout' => 10];
     $this->client = new GuzzleHttp\Client($options);
     return $this->client;
   }
